@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "./Forms/Form.js"
 import FormList from "./Forms/FormList"
-import axios from "axios";
+import axios from "./Axios/index";
 
 
 const initialFormValues = {
@@ -26,12 +26,12 @@ export default function App() {
 
   const submitForm = () => {
     const newForm = {
-      username: formValues.username,
+      name: formValues.name,
       email: formValues.email,
       role: formValues.role,
     };
     
-    if (!newForm.username || !newForm.email || !newForm.role) return;
+    if (!newForm.name || !newForm.email || !newForm.role) return;
     
     axios
       .post("fakeapi.com", newForm)

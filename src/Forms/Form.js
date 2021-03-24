@@ -12,8 +12,8 @@ export default function Form(props) {
    update(name, value);
 };
 
-  const onSubmit = evt => {
-    evt.preventDefault()
+  const onSubmit = (evt) => {
+    evt.preventDefault();
     submit();
     console.log(submit());
   };
@@ -28,8 +28,8 @@ export default function Form(props) {
                 name='name' 
                 type='text' 
                 onChange={onChange}
-                value={values.username}
-                placeholder="type a username"
+                value={values.name}
+                placeholder="type your name"
                 maxLength='30'
               />
         </label>
