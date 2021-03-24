@@ -51,7 +51,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>Form App</h1>
+      <h1>Team Sign up App</h1>
 
       <Form
         values={formValues}
