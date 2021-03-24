@@ -15,12 +15,12 @@ export default function Form(props) {
   const onSubmit = evt => {
     evt.preventDefault()
     submit();
-    // console.log(submit());
-  }
+    console.log(submit());
+  };
 
   return (
     <form className='form container' onSubmit={onSubmit}>
-      <div className='Login inputs'>
+      <div className='form-groups inputs'>
         
         <label>Name
           
@@ -29,6 +29,7 @@ export default function Form(props) {
                 type='text' 
                 onChange={onChange}
                 value={values.username}
+                placeholder="type a username"
                 maxLength='30'
               />
         </label>
@@ -60,6 +61,6 @@ export default function Form(props) {
         </div>
       </div>
     </form>
-  )
+  );
 }
 
