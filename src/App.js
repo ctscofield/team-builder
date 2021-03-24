@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Form from "./Forms/Form.js"
+import FormList from "./Forms/FormList"
 import axios from "axios";
 
 
 const initialFormValues = {
-  username: "",
+  name: "",
   email: "",
   role: "",
 };
@@ -24,18 +25,18 @@ export default function App() {
   };
 
   const submitForm = () => {
-    const newFriend = {
-      username: formValues.username.trim(),
-      email: formValues.email.trim(),
+    const newForm = {
+      username: formValues.username,
+      email: formValues.email,
       role: formValues.role,
     };
     
-    if (!newFriend.username || !newFriend.email || !newFriend.role) return;
+    if (!newForm.username || !newForm.email || !newForm.role) return;
     
     axios
-      .post("fakeapi.com", newFriend)
+      .post("fakeapi.com", newForm)
       .then((res) => {
-        setForms([newFriend, ...forms]);
+        setForms([newForm, ...forms]);
         setFormValues(initialFormValues);
       })
       .catch((err) => {
@@ -58,9 +59,9 @@ export default function App() {
         submit={submitForm}
       />
 
-      {/* {forms.map((friend) => {
-        return <Friend key={friend.id} details={friend} />;
-      })} */}
+      {forms.map((form) => {
+        return <FormList key={form.id} details={form} />;
+      })}
     </div>
   );
 }

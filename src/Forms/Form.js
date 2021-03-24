@@ -1,34 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 
 
 
-export default function LoginForm(props) {
+export default function Form(props) {
   const { values, update, submit } = props;
 
-const onChange = (evt) => {
-  const { name, value } = evt.target;
-
-  update(name, value);
-};
- 
-const [formData, setFormData] =useState({
-    name: '',
-    email: '',
-    role: ''
-})
-
-const onInputChange = event => {
-    setFormData({
-        ...formData,
-        [event.target.name]: event.target.value,  
-    });
+ const onChange = event => {
+   const { name, value } = event.target;
+   update(name, value);
 };
 
   const onSubmit = evt => {
     evt.preventDefault()
-    console.log('submit event')
+    submit();
+    // console.log(submit());
   }
 
   return (
@@ -40,7 +27,8 @@ const onInputChange = event => {
               <input 
                 name='name' 
                 type='text' 
-                onChange={onInputChange} 
+                onChange={onChange}
+                value={values.username}
                 maxLength='30'
               />
         </label>
@@ -48,9 +36,11 @@ const onInputChange = event => {
         <label>Email
          
           <input
-            name='email' 
-            type='email' 
-            onChange={onInputChange} 
+            name="email"
+            value={values.email}
+            type="email"
+            onChange={onChange}
+            placeholder="type an email" 
           />
         </label>
 
