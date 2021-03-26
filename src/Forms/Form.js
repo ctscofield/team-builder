@@ -18,6 +18,10 @@ export default function Form(props) {
     console.log(submit());
   };
 
+  const isDisabled = () => {
+    return !values.name.trim() || !values.email.trim()
+  }
+
   return (
     <form className='form container' onSubmit={onSubmit}>
       <div className='form-groups inputs'>
@@ -55,10 +59,7 @@ export default function Form(props) {
             <option value="graduate">Graduate</option>
           </select>
         </label>
-
-        <div className='submit'>
-          <button>Add</button>
-        </div>
+        <button id="submitBtn" disabled={isDisabled()}>Add</button>   
       </div>
     </form>
   );

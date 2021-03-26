@@ -59,8 +59,8 @@ export default function App() {
         submit={submitForm}
       />
 
-      {forms.map((form) => {
-        return <FormList key={form.id} details={form} />;
+      {forms.map((details) => {
+        return <FormList key={details.id} details={details} />;
       })}
     </div>
   );
